@@ -1,0 +1,16 @@
+.header{
+    font-size: 35px;
+    color: white;
+    font-family: arial;
+    
+}
+.header span{
+    font-size: 20px;
+}
+.header-con{
+    background-color: #272742;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
