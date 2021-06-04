@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" *ngIf="lat && lng">
+      <h3 class="text-center my-5">Weather Forecast:</h3>
+      <div class="text-center mb-4">
+        <button
+          type="submit"
+          class="btn btn-warning btn-md"
+          (click)="sendToAPI()"
+        >
+          Get Location Weather
+        </button>
+      </div>
+      <div class="col-md-6" *ngIf="weatherDetails">
+        <table id="excel-table" class="table border">
+          <thead>
+            <tr class="font-weight-bold">
+              <th></th>
+              <th class="text-center" >Weather forecast</th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>Area</th>
+              <th>Temparature</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ weatherDetails.name }}</td>
+              <td>{{ weatherDetails.main.temp }}</td>
+              <td>{{
+                weatherDetails.weather[0].description[0].toUpperCase() +
+                  weatherDetails.weather[0].description.substring(1)
+              }}</td>
+            </tr>
+          </tbody>
+          <!-- <tr>
+           <th>Weather Details:</th>
+        </tr>
+        <tr>
+        <td><b>Area:</b> {{ weatherDetails.name }}</td>
+        </tr>
+        <tr><td><b>Temperature:</b> {{ weatherDetails.main.temp }}</td></tr>
+        <tr><td><b>Weather Description:</b>
+          {{
+            weatherDetails.weather[0].description[0].toUpperCase() +
+              weatherDetails.weather[0].description.substring(1)
+          }}</td></tr> -->
+          
+        </table>
+        <button (click)="exportExcel()">Export to Excel</button>
+      </div>
+    </div>
+  </div>
+</div>
